@@ -19,14 +19,16 @@ function loaded(x){
 }
 
 function ae(event, func){
-	this.addEventListener(event, func);
+	this.escuchar = function(){
+		this.addEventListener(event, func);
+	}
 }
 
 function getAll(){
 	var all = document.body.getElementsByTagName('*');
 	for(let i of all){
 		if (i.id != ""){
-			eval(`${i.id} = document.getElementById('${i.id}')`);
+			eval(`$${i.id} = document.getElementById('${i.id}')`);
 		}
 	}
 }	
