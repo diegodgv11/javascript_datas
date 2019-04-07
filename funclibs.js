@@ -6,6 +6,10 @@ String.prototype.format = function(...values) {
 	return cadena
 };
 
+HTMLButtonElement.prototype.ae = function(event, func){
+	this.addEventListener(event, func);
+};
+
 function ide(x){
 	return document.getElementById(x);
 }
@@ -18,13 +22,22 @@ function loaded(x){
 	window.addEventListener("load",x);
 }
 
-function ae(event, func){
-	this.escuchar = function(){
-		this.addEventListener(event, func);
+function checkd(input1, input2, inneed1, inneed2, funcT, funcF){
+	if (input1.value == inneed1 && input2.value == inneed2) {
+		funcT();
+	}
+	else{
+		funcF();
 	}
 }
 
-function getAll(){
+function inputBlanker(...input){
+	for(let x in input){
+		x.value = ""
+	}
+}
+
+function getAllId(){
 	var all = document.body.getElementsByTagName('*');
 	for(let i of all){
 		if (i.id != ""){
