@@ -18,6 +18,10 @@ function loaded(x){
 	window.addEventListener("load",x);
 }
 
+function ae(event, func){
+	this.addEventListener(event, func);
+}
+
 function getAll(){
 	var all = document.body.getElementsByTagName('*');
 	for(let i of all){
